@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H-School — Human · How · Head · Heart · Hand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0f0f0f;
+    --white: #f8f5ef;
+    --warm-white: #f2ede4;
+    --accent: #D85A30;
+    --accent-blue: #185FA5;
+    --accent-green: #0F6E56;
+    --accent-purple: #534AB7;
+    --text-secondary: #6b6560;
+    --text-tertiary: #9e9892;
+    --border: rgba(15,15,15,0.12);
+    --border-strong: rgba(15,15,15,0.25);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', 'Noto Sans KR', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(248,245,239,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--black);
+  }
+
+  .nav-logo-mark {
+    width: 32px; height: 32px;
+    background: var(--black);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .nav-logo-mark span {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--white);
+  }
+
+  .nav-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    letter-spacing: -0.3px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+    letter-spacing: 0.2px;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  .nav-cta {
+    background: var(--black) !important;
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    transition: opacity 0.2s !important;
+  }
+
+  .nav-cta:hover { opacity: 0.8; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8rem 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  .hero-bg-h {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'DM Serif Display', serif;
+    font-size: 55vw;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    animation: fadeInSlow 2s ease forwards;
+  }
+
+  @keyframes fadeInSlow {
+    from { opacity: 0; transform: translate(-50%,-52%); }
+    to { opacity: 1; transform: translate(-50%,-50%); }
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    animation: slideUp 0.8s ease 0.2s both;
+  }
+
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(52px, 8vw, 110px);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    animation: slideUp 0.8s ease 0.35s both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: rgba(248,245,239,0.45);
+  }
+
+  .hero-desc {
+    max-width: 560px;
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(248,245,239,0.6);
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    animation: slideUp 0.8s ease 0.5s both;
+  }
+
+  .hero-desc strong {
+    font-weight: 500;
+    color: rgba(248,245,239,0.9);
+  }
+
+  .hero-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 0.5px solid rgba(248,245,239,0.12);
+    padding-top: 2rem;
+    animation: slideUp 0.8s ease 0.65s both;
+  }
+
+  .hero-tags {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(248,245,239,0.4);
+    padding: 4px 12px;
+    border: 0.5px solid rgba(248,245,239,0.15);
+    border-radius: 100px;
+  }
+
+  .hero-scroll {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(248,245,239,0.3);
+    letter-spacing: 1px;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION COMMON ── */
+  section {
+    padding: 7rem 3rem;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--text-secondary); }
+
+  .section-body {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 540px;
+  }
+
+  /* ── PHILOSOPHY ── */
+  .philosophy {
+    background: var(--warm-white);
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .phil-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .phil-quote {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.25;
+    letter-spacing: -1px;
+    color: var(--black);
+  }
+
+  .phil-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .phil-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .phil-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .phil-q {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    min-width: 36px;
+    padding-top: 2px;
+  }
+
+  .phil-a {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .phil-a strong { font-weight: 500; color: var(--black); }
+
+  /* ── 3H FRAMEWORK ── */
+  .framework {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .framework .section-label { color: rgba(248,245,239,0.3); }
+  .framework .section-title { color: var(--white); }
+  .framework .section-title em { color: rgba(248,245,239,0.35); }
+
+  .h3-container {
+    max-width: 1100px;
+    margin: 4rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 0.5px solid rgba(248,245,239,0.12);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .h-card {
+    padding: 2.5rem 2rem 2.75rem;
+    border-right: 0.5px solid rgba(248,245,239,0.12);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .h-card:hover { background: rgba(248,245,239,0.04); }
+  .h-card:last-child { border-right: none; }
+
+  .h-card-top {
+    height: 2px;
+    margin-bottom: 2rem;
+    width: 32px;
+  }
+
+  .h-card.head .h-card-top { background: #378ADD; }
+  .h-card.heart .h-card-top { background: #D85A30; }
+  .h-card.hand .h-card-top { background: #1D9E75; }
+
+  .h-big {
+    font-family: 'DM Serif Display', serif;
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .h-card.head .h-big { color: #378ADD; }
+  .h-card.heart .h-big { color: #D85A30; }
+  .h-card.hand .h-big { color: #1D9E75; }
+
+  .h-name {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+
+  .h-ko {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(248,245,239,0.45);
+    margin-bottom: 1.5rem;
+  }
+
+  .h-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(248,245,239,0.6);
+    line-height: 1.7;
+  }
+
+  .h-keyword {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+    padding: 4px 10px;
+    border-radius: 100px;
+    border: 0.5px solid rgba(248,245,239,0.15);
+    color: rgba(248,245,239,0.4);
+  }
+
+  .framework-tagline {
+    max-width: 1100px;
+    margin: 2.5rem auto 0;
+    text-align: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(248,245,239,0.3);
+    padding-top: 2rem;
+    border-top: 0.5px solid rgba(248,245,239,0.08);
+  }
+
+  /* ── METHOD ── */
+  .method {
+    background: var(--white);
+  }
+
+  .method-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .method-left {}
+
+  .method-tagline {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(24px, 3vw, 38px);
+    font-style: italic;
+    color: var(--black);
+    line-height: 1.3;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .method-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .method-row {
+    display: grid;
+    grid-template-columns: 1fr 24px 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .m-from {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-tertiary);
+    text-decoration: line-through;
+    text-decoration-color: var(--border-strong);
+  }
+
+  .m-arr { font-size: 14px; color: var(--text-tertiary); text-align: center; }
+
+  .m-to {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  .method-right {
+    padding-top: 5rem;
+  }
+
+  .learning-journey {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .j-step {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 0.5px solid var(--border);
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    position: relative;
+  }
+
+  .j-step:last-child { border-bottom: none; }
+
+  .j-step::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+  }
+
+  .j-step.s1::before { background: #B5D4F4; }
+  .j-step.s2::before { background: #378ADD; }
+  .j-step.s3::before { background: #185FA5; }
+  .j-step.s4::before { background: #0C447C; }
+
+  .j-num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--text-tertiary);
+    padding-top: 2px;
+  }
+
+  .j-name { font-size: 14px; font-weight: 500; color: var(--black); margin-bottom: 0.15rem; }
+  .j-desc { font-size: 12px; font-weight: 300; color: var(--text-secondary); line-height: 1.5; }
+  .j-tag { font-size: 10px; font-weight: 500; color: var(--text-tertiary); margin-top: 0.35rem; }
+
+  /* ── CURRICULUM ── */
+  .curriculum {
+    background: var(--warm-white);
+    border-top: 0.5px solid var(--border);
+  }
+
+  .curriculum-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .curriculum-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+  }
+
+  .curriculum-stats {
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .stat { text-align: right; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 0.15rem;
+  }
+
+  .stat-num.orange { color: var(--accent); }
+  .stat-num.blue { color: var(--accent-blue); }
+  .stat-num.green { color: var(--accent-green); }
+
+  .stat-label { font-size: 11px; font-weight: 300; color: var(--text-tertiary); letter-spacing: 0.5px; }
+
+  /* CLASS FORMAT STRIP */
+  .format-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    background: var(--white);
+  }
+
+  .fc {
+    padding: 1.5rem 1.5rem 1.75rem;
+    border-right: 0.5px solid var(--border);
+  }
+
+  .fc:last-child { border-right: none; }
+
+  .fc-time {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .fc:nth-child(1) .fc-time { color: var(--accent); }
+  .fc:nth-child(2) .fc-time { color: var(--accent-blue); }
+  .fc:nth-child(3) .fc-time { color: var(--accent-green); }
+  .fc:nth-child(4) .fc-time { color: var(--accent-purple); }
+
+  .fc-title { font-size: 13px; font-weight: 500; margin-bottom: 0.25rem; }
+  .fc-desc { font-size: 12px; font-weight: 300; color: var(--text-secondary); line-height: 1.55; }
+
+  /* MODULES */
+  .modules { display: flex; flex-direction: column; gap: 12px; }
+
+  .module-card {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .module-top {
+    display: grid;
+    grid-template-columns: 3px 1fr;
+    cursor: pointer;
+  }
+
+  .mod-accent { width: 3px; }
+  .mod-accent.s { background: var(--accent); }
+  .mod-accent.m { background: var(--accent-blue); }
+  .mod-accent.f { background: var(--accent-green); }
+  .mod-accent.t { background: var(--accent-purple); }
+  .mod-accent.p { background: var(--black); }
+
+  .mod-head {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mod-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .mod-accent.s + .mod-head .mod-num { color: var(--accent); }
+  .mod-accent.m + .mod-head .mod-num { color: var(--accent-blue); }
+  .mod-accent.f + .mod-head .mod-num { color: var(--accent-green); }
+  .mod-accent.t + .mod-head .mod-num { color: var(--accent-purple); }
+  .mod-accent.p + .mod-head .mod-num { color: var(--text-tertiary); }
+
+  .mod-info { flex: 1; }
+  .mod-title { font-size: 15px; font-weight: 500; margin-bottom: 0.1rem; }
+  .mod-sub { font-size: 12px; font-weight: 300; color: var(--text-secondary); }
+
+  .mod-badge {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    border: 0.5px solid var(--border-strong);
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .mod-toggle {
+    font-size: 16px;
+    color: var(--text-tertiary);
+    transition: transform 0.3s;
+    padding: 0 0.5rem;
+  }
+
+  .module-card.open .mod-toggle { transform: rotate(45deg); }
+
+  .mod-sessions {
+    display: none;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    border-top: 0.5px solid var(--border);
+  }
+
+  .module-card.open .mod-sessions { display: grid; }
+
+  .sess {
+    padding: 1.25rem 1.5rem 1.5rem;
+    border-right: 0.5px solid var(--border);
+  }
+
+  .sess:last-child { border-right: none; }
+
+  .sess-num { font-size: 10px; font-weight: 500; letter-spacing: 2px; color: var(--text-tertiary); margin-bottom: 0.5rem; }
+
+  .h-pips { display: flex; gap: 4px; margin-bottom: 0.4rem; }
+  .pip {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+  .pip.head { background: #E6F1FB; color: #0C447C; }
+  .pip.heart { background: #FAECE7; color: #712B13; }
+  .pip.hand { background: #E1F5EE; color: #085041; }
+
+  .sess-title { font-size: 14px; font-weight: 500; line-height: 1.35; margin-bottom: 0.15rem; }
+  .sess-en { font-size: 11px; font-weight: 300; color: var(--text-tertiary); margin-bottom: 0.65rem; }
+
+  .sess-chips { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 0.75rem; }
+  .chip {
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--text-tertiary);
+    background: var(--warm-white);
+    padding: 2px 7px;
+    border-radius: 3px;
+  }
+
+  .sess-case {
+    border-top: 0.5px solid var(--border);
+    padding-top: 0.65rem;
+    margin-top: 0.25rem;
+  }
+
+  .case-lbl {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 0.2rem;
+  }
+
+  .case-title { font-size: 12px; font-weight: 500; line-height: 1.4; margin-bottom: 0.2rem; }
+  .case-desc { font-size: 11px; font-weight: 300; color: var(--text-secondary); line-height: 1.5; }
+
+  .sess-activity {
+    margin-top: 0.65rem;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    border-top: 0.5px dashed var(--border);
+    padding-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .sess-activity strong { font-weight: 500; color: var(--black); }
+
+  /* ── LEVELS ── */
+  .levels {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .levels .section-label { color: rgba(248,245,239,0.3); }
+  .levels .section-title { color: var(--white); }
+
+  .levels-grid {
+    max-width: 1100px;
+    margin: 3.5rem auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .level-card {
+    border: 0.5px solid rgba(248,245,239,0.12);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .level-top {
+    padding: 1.5rem;
+    border-bottom: 0.5px solid rgba(248,245,239,0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .level-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .level-a .level-dot { background: var(--accent); }
+  .level-b .level-dot { background: var(--accent-blue); }
+
+  .level-name { font-size: 16px; font-weight: 500; color: var(--white); }
+  .level-age { font-size: 12px; font-weight: 300; color: rgba(248,245,239,0.4); margin-left: auto; }
+
+  .level-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.1rem; }
+
+  .lv-row {}
+  .lv-label { font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(248,245,239,0.3); margin-bottom: 0.2rem; }
+  .lv-val { font-size: 13px; font-weight: 300; color: rgba(248,245,239,0.6); line-height: 1.6; }
+  .lv-val strong { font-weight: 500; color: rgba(248,245,239,0.9); }
+
+  /* ── OUTCOMES ── */
+  .outcomes {
+    background: var(--white);
+    border-top: 0.5px solid var(--border);
+  }
+
+  .outcomes-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 3rem;
+  }
+
+  .out-card {
+    background: var(--warm-white);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .out-num {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--text-tertiary);
+    margin-bottom: 0.5rem;
+  }
+
+  .out-title { font-size: 15px; font-weight: 500; margin-bottom: 0.35rem; }
+  .out-desc { font-size: 13px; font-weight: 300; color: var(--text-secondary); line-height: 1.6; }
+
+  /* ── PORTFOLIO ── */
+  .portfolio-section {
+    background: var(--warm-white);
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .portfolio-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .port-h {
+    font-family: 'DM Serif Display', serif;
+    font-size: 120px;
+    font-style: italic;
+    color: var(--border-strong);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .port-content {}
+  .port-title { font-size: 22px; font-weight: 500; margin-bottom: 0.75rem; }
+  .port-desc { font-size: 15px; font-weight: 300; color: var(--text-secondary); line-height: 1.75; max-width: 520px; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--black);
+    padding: 8rem 3rem;
+    text-align: center;
+  }
+
+  .cta-label { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: rgba(248,245,239,0.3); margin-bottom: 1.5rem; }
+
+  .cta-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 6vw, 80px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-title em { color: var(--accent); font-style: normal; }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--white);
+    color: var(--black);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 16px 40px;
+    border-radius: 100px;
+    transition: opacity 0.2s;
+  }
+
+  .cta-btn:hover { opacity: 0.85; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    border-top: 0.5px solid rgba(248,245,239,0.08);
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: rgba(248,245,239,0.4);
+  }
+
+  .footer-sub {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(248,245,239,0.2);
+  }
+
+  .footer-tagline {
+    font-size: 12px;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(248,245,239,0.25);
+  }
+
+  /* scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark"><span>H</span></div>
+    <span class="nav-brand">H-School</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#philosophy">철학</a></li>
+    <li><a href="#framework">3H 프레임</a></li>
+    <li><a href="#curriculum">커리큘럼</a></li>
+    <li><a href="#levels">대상</a></li>
+    <li><a href="#contact" class="nav-cta">문의하기</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-h">H</div>
+  <div class="hero-eyebrow">Course Proposal · 2026</div>
+  <h1 class="hero-title">H-<em>School</em></h1>
+  <p class="hero-desc">
+    <strong>Human-centered 문제 해결</strong>을 기반으로,<br>
+    Head · Heart · Hand를 통합하여<br>
+    'How'에 집중하는 실험형 학습 플랫폼
+  </p>
+  <div class="hero-bottom">
+    <div class="hero-tags">
+      <span class="hero-tag">초등 고학년</span>
+      <span class="hero-tag">중학생</span>
+      <span class="hero-tag">고등학생</span>
+      <span class="hero-tag">Case-Study 기반</span>
+      <span class="hero-tag">4모듈 · 15회</span>
+    </div>
+    <span class="hero-scroll">Scroll to explore ↓</span>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="phil-inner">
+    <div class="phil-left reveal">
+      <div class="section-label">철학 · Philosophy</div>
+      <blockquote class="phil-quote">
+        "We don't teach answers.<br>
+        We teach how<br>
+        to solve."
+      </blockquote>
+    </div>
+    <div class="phil-right reveal">
+      <div class="phil-row">
+        <div class="phil-q">Why</div>
+        <div class="phil-a"><strong>Human-centered 문제 해결</strong><br>사람의 문제에서 시작합니다. 무엇을 가르칠지보다, 누구의 어떤 문제를 해결할지를 먼저 묻습니다.</div>
+      </div>
+      <div class="phil-row">
+        <div class="phil-q">What</div>
+        <div class="phil-a"><strong>Head · Heart · Hand</strong><br>사고, 공감, 실행의 세 축이 순환할 때 비로소 문제가 풀립니다.</div>
+      </div>
+      <div class="phil-row">
+        <div class="phil-q">How</div>
+        <div class="phil-a"><strong>실험 기반 반복 학습</strong><br>정답이 아니라 접근 방식을 훈련합니다. 이론이 아니라 프로토타이핑과 반복으로.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3H FRAMEWORK -->
+<section class="framework" id="framework">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label reveal">3H Framework</div>
+    <h2 class="section-title reveal">생각하고, 공감하고,<br><em>만든다</em></h2>
+    <div class="h3-container reveal">
+      <div class="h-card head">
+        <div class="h-card-top"></div>
+        <div class="h-big">H</div>
+        <div class="h-name">Head</div>
+        <div class="h-ko">문제 정의와 사고</div>
+        <div class="h-desc">복잡한 상황을 구조화하고 올바른 문제를 찾아내는 인지적 역량. 현상 너머의 진짜 원인을 묻습니다.</div>
+        <div class="h-keyword">Thinking</div>
+      </div>
+      <div class="h-card heart">
+        <div class="h-card-top"></div>
+        <div class="h-big">H</div>
+        <div class="h-name">Heart</div>
+        <div class="h-ko">공감과 동기</div>
+        <div class="h-desc">사람과 맥락을 깊이 이해하고 움직이는 힘. 인터뷰와 관찰로 숨겨진 니즈를 발견합니다.</div>
+        <div class="h-keyword">Empathy</div>
+      </div>
+      <div class="h-card hand">
+        <div class="h-card-top"></div>
+        <div class="h-big">H</div>
+        <div class="h-name">Hand</div>
+        <div class="h-ko">실행과 실험</div>
+        <div class="h-desc">직접 만들고 반복하며 검증하는 실행력. 빠르게 프로토타이핑하고 현실에서 부딪힙니다.</div>
+        <div class="h-keyword">Action</div>
+      </div>
+    </div>
+    <div class="framework-tagline reveal">Human · How · Head · Heart · Hand — 다섯 개의 H가 하나의 방향을 가리킵니다</div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="method">
+  <div class="method-inner">
+    <div class="method-left reveal">
+      <div class="section-label">Method · 접근 방식</div>
+      <h2 class="section-title">How<br><em>중심 학습</em></h2>
+      <div class="method-tagline">"What이 아니라<br>How를 가르칩니다"</div>
+      <div class="method-rows">
+        <div class="method-row">
+          <div class="m-from">What to know</div>
+          <div class="m-arr">→</div>
+          <div class="m-to">How to approach</div>
+        </div>
+        <div class="method-row">
+          <div class="m-from">정답 전달</div>
+          <div class="m-arr">→</div>
+          <div class="m-to">접근 방식 훈련</div>
+        </div>
+        <div class="method-row">
+          <div class="m-from">이론 학습</div>
+          <div class="m-arr">→</div>
+          <div class="m-to">프로토타이핑 & 반복</div>
+        </div>
+        <div class="method-row">
+          <div class="m-from">주입식 강의</div>
+          <div class="m-arr">→</div>
+          <div class="m-to">케이스 기반 토론</div>
+        </div>
+        <div class="method-row">
+          <div class="m-from">성적과 등급</div>
+          <div class="m-arr">→</div>
+          <div class="m-to">성장 서사 포트폴리오</div>
+        </div>
+      </div>
+    </div>
+    <div class="method-right reveal">
+      <div class="section-label">러닝 저니 · 4단계 흐름</div>
+      <div class="learning-journey" style="margin-top:1rem;">
+        <div class="j-step s1">
+          <div class="j-num">01</div>
+          <div>
+            <div class="j-name">Discover</div>
+            <div class="j-desc">문제와 나를 연결하는 단계. 주변을 관찰하고 "왜?"를 묻기 시작합니다.</div>
+            <div class="j-tag">Head + Heart</div>
+          </div>
+        </div>
+        <div class="j-step s2">
+          <div class="j-num">02</div>
+          <div>
+            <div class="j-name">Define</div>
+            <div class="j-desc">문제를 구체화하고 방향을 잡는 단계. HMW 질문으로 재정의합니다.</div>
+            <div class="j-tag">Head</div>
+          </div>
+        </div>
+        <div class="j-step s3">
+          <div class="j-num">03</div>
+          <div>
+            <div class="j-name">Prototype</div>
+            <div class="j-desc">빠르게 만들고 현실에 부딪히는 단계. 못생겨도 괜찮습니다.</div>
+            <div class="j-tag">Hand</div>
+          </div>
+        </div>
+        <div class="j-step s4">
+          <div class="j-num">04</div>
+          <div>
+            <div class="j-name">Reflect</div>
+            <div class="j-desc">실험을 돌아보고 다음을 설계하는 단계. 배운 것이 곧 결과물입니다.</div>
+            <div class="j-tag">Head + Heart + Hand</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curriculum" id="curriculum">
+  <div class="curriculum-inner">
+    <div class="curriculum-header reveal">
+      <div>
+        <div class="section-label">커리큘럼 · Curriculum</div>
+        <h2 class="section-title">4모듈 <em>15회</em></h2>
+      </div>
+      <div class="curriculum-stats">
+        <div class="stat">
+          <div class="stat-num orange">4</div>
+          <div class="stat-label">핵심 모듈</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num blue">15</div>
+          <div class="stat-label">총 수업 횟수</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num green">90</div>
+          <div class="stat-label">분 / 회</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Class Format -->
+    <div class="format-strip reveal">
+      <div class="fc">
+        <div class="fc-time">15분</div>
+        <div class="fc-title">예습 케이스 공유</div>
+        <div class="fc-desc">수업 전 읽어온 케이스를 팀과 빠르게 공유. 첫 인상과 질문 나누기.</div>
+      </div>
+      <div class="fc">
+        <div class="fc-time">25분</div>
+        <div class="fc-title">핵심 개념 강의</div>
+        <div class="fc-desc">이론 프레임워크를 케이스에 적용할 수 있는 수준으로 압축 전달.</div>
+      </div>
+      <div class="fc">
+        <div class="fc-time">35분</div>
+        <div class="fc-title">팀 토론 & 분석</div>
+        <div class="fc-desc">팀별로 케이스에 대한 입장과 논리를 구성. 정답 없는 토론 훈련.</div>
+      </div>
+      <div class="fc">
+        <div class="fc-time">15분</div>
+        <div class="fc-title">발표 & 피드백</div>
+        <div class="fc-desc">팀별 3분 발표. 강사·동료 피드백. 다음 케이스 예고.</div>
+      </div>
+    </div>
+
+    <!-- Module Cards -->
+    <div class="modules reveal">
+
+      <!-- MODULE 01: 전략 -->
+      <div class="module-card" onclick="toggleModule(this)">
+        <div class="module-top">
+          <div class="mod-accent s"></div>
+          <div class="mod-head">
+            <div class="mod-num">01</div>
+            <div class="mod-info">
+              <div class="mod-title">전략 — 기업이 경쟁에서 어떻게 이기는가</div>
+              <div class="mod-sub">Strategy · 3회 세션</div>
+            </div>
+            <div class="mod-badge">Head</div>
+            <div class="mod-toggle">+</div>
+          </div>
+        </div>
+        <div class="mod-sessions">
+          <div class="sess">
+            <div class="sess-num">Session 01</div>
+            <div class="h-pips"><span class="pip head">Head</span></div>
+            <div class="sess-title">게임이론 & 전략적 사고</div>
+            <div class="sess-en">Game Theory</div>
+            <div class="sess-chips"><span class="chip">최수의 딜레마</span><span class="chip">내쉬 균형</span><span class="chip">선점 전략</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">예습 케이스</div>
+              <div class="case-title">코카콜라 vs 펩시 — 가격 전쟁의 끝은?</div>
+              <div class="case-desc">두 기업이 왜 가격 인하 경쟁을 멈췄는지 게임이론으로 분석.</div>
+            </div>
+            <div class="sess-activity"><strong>활동</strong> 2인 가격 협상 시뮬레이션</div>
+          </div>
+          <div class="sess">
+            <div class="sess-num">Session 02</div>
+            <div class="h-pips"><span class="pip head">Head</span></div>
+            <div class="sess-title">경쟁 분석 & 포지셔닝</div>
+            <div class="sess-en">Competitive Strategy</div>
+            <div class="sess-chips"><span class="chip">Porter 5 Forces</span><span class="chip">차별화 vs 원가우위</span><span class="chip">블루오션</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">예습 케이스</div>
+              <div class="case-title">넷플릭스는 어떻게 블록버스터를 이겼나</div>
+              <div class="case-desc">넷플릭스 초기 비즈니스 모델 — 왜 블록버스터는 같은 전략을 쓰지 않았을까?</div>
+            </div>
+            <div class="sess-activity"><strong>활동</strong> 우리 학교 근처 카페 경쟁 분석</div>
+          </div>
+          <div class="sess">
+            <div class="sess-num">Session 03</div>
+            <div class="h-pips"><span class="pip head">Head</span><span class="pip heart">Heart</span></div>
+            <div class="sess-title">의사결정 & 불확실성</div>
+            <div class="sess-en">Decision Making</div>
+            <div class="sess-chips"><span class="chip">기대값 vs 직관</span><span class="chip">매몰비용 오류</span><span class="chip">시나리오 플래닝</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">예습 케이스</div>
+              <div class="case-title">머니볼 — 데이터로 야구를 바꾼 빌리 빈</div>
+              <div class="case-desc">전통 스카우팅 vs 통계 기반 의사결정.</div>
+            </div>
+            <div class="sess-activity"><strong>활동</strong> 불확실 상황 의사결정 롤플레이</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODULE 02: 마케팅 -->
+      <div class="module-card" onclick="toggleModule(this)">
+        <div class="module-top">
+          <div class="mod-accent m"></div>
+          <div class="mod-head">
+            <div class="mod-num">02</div>
+            <div class="mod-info">
+              <div class="mod-title">마케팅 — 고객의 마음을 어떻게 움직이는가</div>
+              <div class="mod-sub">Marketing · 3회 세션</div>
+            </div>
+            <div class="mod-badge">Head · Heart</div>
+            <div class="mod-toggle">+</div>
+          </div>
+        </div>
+        <div class="mod-sessions">
+          <div class="sess">
+            <div class="sess-num">Session 04</div>
+            <div class="h-pips"><span class="pip heart">Heart</span></div>
+            <div class="sess-title">브랜드 & 스토리텔링</div>
+            <div class="sess-en">Brand Strategy</div>
+            <div class="sess-chips"><span class="chip">브랜드 아이덴티티</span><span class="chip">감성 마케팅</span><span class="chip">포지셔닝 맵</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">예습 케이스</div>
+              <div class="case-title">나이키의 'Just Do It' — 30년간 같은 슬로건이 통하는 이유</div>
+              <div class="case-desc">광고 3편을 보고 타겟·감정·메시지를 분석합니다.</div>
+            </div>
+            <div class="sess-activity"><strong>활동</strong> 가상 브랜드 슬로건 & 로고 스케치</div>
+          </div>
+          <div class="sess">
+            <div class="sess-num">Session 05</div>
+            <div class="h-pips"><span class="pip head">Head</span><span class="pip heart">Heart</span></div>
+            <div class="sess-title">소비자 심리 & 행동</div>
+            <div class="sess-en">Consumer Behavior</div>
+            <div class="sess-chips"><span class="chip">구매 결정 프로세스</span><span class="chip">사회적 증거</span><span class="chip">넛지 이론</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">예습 케이스</div>
+              <div class="case-title">스타벅스 리워드 — 왜 도장 모으기에 열광하나</div>
+              <div class="case-desc">스타벅스 vs 메가커피 로열티 프로그램을 행동경제학 관점에서 비교.</div>
+            </div>
+            <div class="sess-activity"><strong>활동</strong> 학교 매점 메뉴판 넛지 리디자인</div>
+          </div>
+          <div class="sess">
+            <div class="sess-num">Session 06</div>
+            <div class="h-pips"><span class="pip head">Head</span><span class="pip hand">Hand</span></div>
+            <div class="sess-title">디지털 & 바이럴 마케팅</div>
+            <div class="sess-en">Digital Marketing</div>
+            <div class="sess-chips"><span class="chip">콘텐츠 마케팅</span><span class="chip">인플루언서 경제</span><span class="chip">바이럴 메커니즘</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">예습 케이스</div>
+              <div class="case-title">올드스파이스 — 하루 만에 유튜브를 점령한 캠페인</div>
+              <div class="case-desc">조회수·매출 데이터로 무엇이 공유를 만드는지 분석.</div>
+            </div>
+            <div class="sess-activity"><strong>활동</strong> 15초 숏폼 광고 기획서 작성</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODULE 03: 재무/회계 -->
+      <div class="module-card" onclick="toggleModule(this)">
+        <div class="module-top">
+          <div class="mod-accent f"></div>
+          <div class="mod-head">
+            <div class="mod-num">03</div>
+            <div class="mod-info">
+              <div class="mod-title">재무/회계 — 숫자로 비즈니스를 읽는 법</div>
+              <div class="mod-sub">Finance & Accounting · 3회 세션</div>
+            </div>
+            <div class="mod-badge">Head</div>
+            <div class="mod-toggle">+</div>
+          </div>
+        </div>
+        <div class="mod-sessions">
+          <div class="sess">
+            <div class="sess-num">Session 07</div>
+            <div class="h-pips"><span class="pip head">Head</span></div>
+            <div class="sess-title">재무제표 독해</div>
+            <div class="sess-en">Financial Statements</div>
+            <div class="sess-chips"><span class="chip">손익계산서</span><span class="chip">대차대조표</span><span class="chip">현금흐름표</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">예습 케이스</div>
+              <div class="case-title">카카오 vs 네이버 — 같은 IT 기업, 다른 재무 구조</div>
+              <div class="case-desc">두 기업의 요약 재무제표를 비교해 더 건강한 회사를 찾습니다.</div>
+            </div>
+            <div class="sess-activity"><strong>활동</strong> 3억 원으로 어느 주식 살지 팀 토론</div>
+          </div>
+          <div class="sess">
+            <div class="sess-num">Session 08</div>
+            <div class="h-pips"><span class="pip head">Head</span></div>
+            <div class="sess-title">기업 가치평가</div>
+            <div class="sess-en">Business Valuation</div>
+            <div class="sess-chips"><span class="chip">PER / PBR</span><span class="chip">DCF 기초</span><span class="chip">스타트업 밸류에이션</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">예습 케이스</div>
+              <div class="case-title">배달의민족은 왜 4.75조 원에 팔렸나</div>
+              <div class="case-desc">적자 기업이 수조 원의 가치를 갖는 이유를 분석합니다.</div>
+            </div>
+            <div class="sess-activity"><strong>활동</strong> 붕어빵 가게 기업 가치 계산해보기</div>
+          </div>
+          <div class="sess">
+            <div class="sess-num">Session 09</div>
+            <div class="h-pips"><span class="pip head">Head</span><span class="pip heart">Heart</span></div>
+            <div class="sess-title">투자와 리스크</div>
+            <div class="sess-en">Investment & Risk</div>
+            <div class="sess-chips"><span class="chip">분산투자</span><span class="chip">리스크-수익 트레이드오프</span><span class="chip">복리의 마법</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">예습 케이스</div>
+              <div class="case-title">워런 버핏의 10년 내기 — 헤지펀드 vs 인덱스 펀드</div>
+              <div class="case-desc">전문가보다 평범한 투자가 이긴 이유를 데이터로 검증.</div>
+            </div>
+            <div class="sess-activity"><strong>활동</strong> 100만 원 가상 포트폴리오 구성 & 발표</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODULE 04: New Tech -->
+      <div class="module-card" onclick="toggleModule(this)">
+        <div class="module-top">
+          <div class="mod-accent t"></div>
+          <div class="mod-head">
+            <div class="mod-num">04</div>
+            <div class="mod-info">
+              <div class="mod-title">New Tech — 기술이 비즈니스를 어떻게 바꾸는가</div>
+              <div class="mod-sub">New Technology · 3회 세션</div>
+            </div>
+            <div class="mod-badge">Head · Hand</div>
+            <div class="mod-toggle">+</div>
+          </div>
+        </div>
+        <div class="mod-sessions">
+          <div class="sess">
+            <div class="sess-num">Session 10</div>
+            <div class="h-pips"><span class="pip head">Head</span></div>
+            <div class="sess-title">AI & 비즈니스 혁신</div>
+            <div class="sess-en">AI in Business</div>
+            <div class="sess-chips"><span class="chip">생성형 AI 활용</span><span class="chip">자동화와 일자리</span><span class="chip">AI 비즈니스 모델</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">예습 케이스</div>
+              <div class="case-title">ChatGPT 등장 후 구글은 왜 긴장했나</div>
+              <div class="case-desc">AI가 기존 비즈니스 모델을 어떻게 위협하는지 분석합니다.</div>
+            </div>
+            <div class="sess-activity"><strong>활동</strong> AI로 대체될 직업 vs 새로 생길 직업 토론</div>
+          </div>
+          <div class="sess">
+            <div class="sess-num">Session 11</div>
+            <div class="h-pips"><span class="pip head">Head</span><span class="pip heart">Heart</span></div>
+            <div class="sess-title">플랫폼 경제</div>
+            <div class="sess-en">Platform Economy</div>
+            <div class="sess-chips"><span class="chip">네트워크 효과</span><span class="chip">양면 시장</span><span class="chip">플랫폼 vs 파이프라인</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">예습 케이스</div>
+              <div class="case-title">배달의민족 — 치킨집 사장님과 소비자 모두를 잡아라</div>
+              <div class="case-desc">배민의 수수료 정책 논란 — 플랫폼은 누구의 편인가?</div>
+            </div>
+            <div class="sess-activity"><strong>활동</strong> 우리 학교를 위한 플랫폼 아이디어 설계</div>
+          </div>
+          <div class="sess">
+            <div class="sess-num">Session 12</div>
+            <div class="h-pips"><span class="pip head">Head</span><span class="pip hand">Hand</span></div>
+            <div class="sess-title">창업과 혁신 사이클</div>
+            <div class="sess-en">Startup & Innovation</div>
+            <div class="sess-chips"><span class="chip">린 스타트업</span><span class="chip">MVP 개념</span><span class="chip">피벗 전략</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">예습 케이스</div>
+              <div class="case-title">인스타그램은 처음에 위스키 앱이었다</div>
+              <div class="case-desc">Burbn → Instagram 피벗 스토리 — 실패를 자산으로 만드는 방법.</div>
+            </div>
+            <div class="sess-activity"><strong>활동</strong> MVP 아이디어 피칭 (팀별 3분)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODULE 05: 통합 프로젝트 -->
+      <div class="module-card" onclick="toggleModule(this)">
+        <div class="module-top">
+          <div class="mod-accent p"></div>
+          <div class="mod-head">
+            <div class="mod-num">05</div>
+            <div class="mod-info">
+              <div class="mod-title">통합 프로젝트 — 내가 직접 문제를 풀다</div>
+              <div class="mod-sub">Final Project · 3회 세션 (팀 프로젝트)</div>
+            </div>
+            <div class="mod-badge">Head · Heart · Hand</div>
+            <div class="mod-toggle">+</div>
+          </div>
+        </div>
+        <div class="mod-sessions">
+          <div class="sess">
+            <div class="sess-num">Session 13</div>
+            <div class="h-pips"><span class="pip head">Head</span><span class="pip heart">Heart</span></div>
+            <div class="sess-title">문제 & 아이디어 정의</div>
+            <div class="sess-en">Problem Definition</div>
+            <div class="sess-chips"><span class="chip">HMW 질문</span><span class="chip">문제 선정</span><span class="chip">팀 역할 분배</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">과제</div>
+              <div class="case-title">팀이 해결하고 싶은 실제 문제 선정</div>
+              <div class="case-desc">학교·동네·사회에서 직접 겪은 불편함을 HMW 형식으로 재정의.</div>
+            </div>
+            <div class="sess-activity"><strong>결과물</strong> 문제 정의서 + 가설 도출</div>
+          </div>
+          <div class="sess">
+            <div class="sess-num">Session 14</div>
+            <div class="h-pips"><span class="pip heart">Heart</span><span class="pip hand">Hand</span></div>
+            <div class="sess-title">솔루션 설계 & 검증</div>
+            <div class="sess-en">Solution Design</div>
+            <div class="sess-chips"><span class="chip">아이디어 발산</span><span class="chip">프로토타입</span><span class="chip">간이 검증</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">과제</div>
+              <div class="case-title">솔루션을 직접 만들고 3명에게 피드백</div>
+              <div class="case-desc">종이 프로토타입 또는 서비스 시나리오 제작 후 실제 반응 수집.</div>
+            </div>
+            <div class="sess-activity"><strong>결과물</strong> 프로토타입 + 피드백 인사이트</div>
+          </div>
+          <div class="sess">
+            <div class="sess-num">Session 15</div>
+            <div class="h-pips"><span class="pip head">Head</span><span class="pip heart">Heart</span><span class="pip hand">Hand</span></div>
+            <div class="sess-title">최종 발표 — Demo Day</div>
+            <div class="sess-en">Final Presentation</div>
+            <div class="sess-chips"><span class="chip">5분 피칭</span><span class="chip">Q&A</span><span class="chip">H-Portfolio</span></div>
+            <div class="sess-case">
+              <div class="case-lbl">발표 구성</div>
+              <div class="case-title">문제 → 인사이트 → 솔루션 → 배운 것</div>
+              <div class="case-desc">결과물보다 과정이 핵심. 무엇을 시도하고 배웠는지를 중심으로 발표.</div>
+            </div>
+            <div class="sess-activity"><strong>결과물</strong> H-Portfolio 완성 + 수료</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LEVELS -->
+<section class="levels" id="levels">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label reveal">대상 · Audience</div>
+    <h2 class="section-title reveal">두 개의 <em>레벨</em>로<br>운영합니다</h2>
+    <div class="levels-grid reveal">
+      <div class="level-card level-a">
+        <div class="level-top">
+          <div class="level-dot"></div>
+          <div class="level-name">Explorer</div>
+          <div class="level-age">초등 5–6학년 · 중학생</div>
+        </div>
+        <div class="level-body">
+          <div class="lv-row">
+            <div class="lv-label">특성</div>
+            <div class="lv-val">비즈니스와 세상을 처음 연결하는 시기. <strong>호기심을 논리로</strong> 바꾸는 첫 번째 경험.</div>
+          </div>
+          <div class="lv-row">
+            <div class="lv-label">강조</div>
+            <div class="lv-val">왜 이 기업은 이길까? 나라면 어떻게 할까? — <strong>Head + Heart</strong> 중심</div>
+          </div>
+          <div class="lv-row">
+            <div class="lv-label">케이스 수준</div>
+            <div class="lv-val">국내 친숙한 브랜드 (배민, 카카오, 나이키 코리아, 스타벅스)</div>
+          </div>
+        </div>
+      </div>
+      <div class="level-card level-b">
+        <div class="level-top">
+          <div class="level-dot"></div>
+          <div class="level-name">Builder</div>
+          <div class="level-age">고등학생</div>
+        </div>
+        <div class="level-body">
+          <div class="lv-row">
+            <div class="lv-label">특성</div>
+            <div class="lv-val">진로·창업·투자에 대한 질문이 생기는 시기. <strong>실전 사고와 자기 서사</strong> 구축.</div>
+          </div>
+          <div class="lv-row">
+            <div class="lv-label">강조</div>
+            <div class="lv-val">데이터로 근거를 세우고 자신의 논리를 발표 — <strong>Head + Hand</strong> 중심</div>
+          </div>
+          <div class="lv-row">
+            <div class="lv-label">케이스 수준</div>
+            <div class="lv-val">글로벌 기업 + 재무 수치 포함 (넷플릭스, 워런 버핏, ChatGPT vs Google)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="outcomes" id="outcomes">
+  <div class="outcomes-inner">
+    <div class="reveal">
+      <div class="section-label">기대 성과 · Expected Outcomes</div>
+      <h2 class="section-title">이 과정으로<br><em>얻는 것</em></h2>
+    </div>
+    <div class="outcomes-grid reveal">
+      <div class="out-card">
+        <div class="out-num">01</div>
+        <div class="out-title">비즈니스 언어 습득</div>
+        <div class="out-desc">ROI, BATNA, 포지셔닝, 현금흐름 — 사회에서 쓰이는 경영 용어를 실제 문맥 속에서 익힌다.</div>
+      </div>
+      <div class="out-card">
+        <div class="out-num">02</div>
+        <div class="out-title">논리적 사고 훈련</div>
+        <div class="out-desc">정답 없는 케이스에 자신의 입장을 세우고 근거를 구성하는 훈련 — 수능을 넘는 사고력.</div>
+      </div>
+      <div class="out-card">
+        <div class="out-num">03</div>
+        <div class="out-title">발표 & 설득 역량</div>
+        <div class="out-desc">매 수업 팀 발표를 통해 자연스럽게 쌓이는 프레젠테이션 경험 — 면접, 대회, 진학에 직결.</div>
+      </div>
+      <div class="out-card">
+        <div class="out-num">04</div>
+        <div class="out-title">진로 방향 탐색</div>
+        <div class="out-desc">경영·금융·마케팅·창업·컨설팅 등 다양한 분야를 직접 체험하며 적성을 발견한다.</div>
+      </div>
+      <div class="out-card">
+        <div class="out-num">05</div>
+        <div class="out-title">팀워크 & 협업 경험</div>
+        <div class="out-desc">케이스마다 다른 팀 구성 — 다양한 의견을 조율하고 공동 결론을 내는 실전 협업.</div>
+      </div>
+      <div class="out-card">
+        <div class="out-num">06</div>
+        <div class="out-title">H-Portfolio 완성</div>
+        <div class="out-desc">점수 대신 성장 서사. 내가 어떤 문제를 어떻게 접근했는지 담긴 나만의 포트폴리오.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio-section">
+  <div class="portfolio-inner reveal">
+    <div class="port-h">H·</div>
+    <div class="port-content">
+      <div class="port-title">H-Portfolio — 등급이 아닌 성장 서사</div>
+      <p class="port-desc">H-School Junior 수료생은 15회의 케이스 분석, 팀 발표, 최종 프로젝트를 담은 H-Portfolio를 갖게 됩니다. "나는 어떤 문제를 어떻게 풀었는가"를 증명하는 자기만의 비즈니스 사고 기록입니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-label">문의 · Contact</div>
+  <h2 class="cta-title">비즈니스를 배우는<br>가장 <em>이른</em> 시작</h2>
+  <a href="mailto:hello@h-school.kr" class="cta-btn">문의하기 →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">H-School</div>
+    <div class="footer-sub">Human · How · Head · Heart · Hand</div>
+  </div>
+  <div class="footer-tagline">"We don't teach answers. We teach how to solve."</div>
+</footer>
+
+<script>
+  function toggleModule(el) {
+    el.classList.toggle('open');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Staggered reveals for groups
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+  });
+</script>
+</body>
+</html>
